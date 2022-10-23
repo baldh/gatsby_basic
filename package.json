@@ -1,0 +1,8 @@
+{
+  "name": "gatsby_basic",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "https://github.com/baldh/gatsby_basic.git",
+  "author": "baldh <baldhokri1@gmail.com>",
+  "license": "MIT"
+}

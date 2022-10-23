@@ -1,0 +1,20 @@
+{
+  "name": "gatsby_basic",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "https://github.com/baldh/gatsby_basic.git",
+  "author": "baldh <baldhokri1@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby start",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.24.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

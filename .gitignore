@@ -1,0 +1,33 @@
+# Dependency directories
+node_modules/
+dist
+integration-tests/gatsby-cli/execution-folder/*
+
+# Gatsby files
+.cache/
+
+# Logs
+logs
+*.log
+
+# Build Path of Test Fixtures
+test/**/public
+.gatsby-context.js
+.DS_Store
+public/
+e2e-tests/gatsby-pnp/
+__diff_output__/
+.netlify
+
+# IDE specific
+.idea/
+.vscode/
+
+# lock files
+yarn.lock
+package-lock.json
+
+# misc
+.serverless/
+.eslintcache
+scripts/.env

@@ -4,5 +4,6 @@ module.exports = {
     title: "Basic Gatsby Starter",
     description: "Basic Gatsby example and setup",
     image: "https://source.unsplash.com/YFzPw-Ph1Hw"
-  }
+  },
+  plugins: ["gatsby-plugin-react-helmet"]
 }

@@ -4,13 +4,7 @@ import { Seo } from './seo';
 import {header, content} from '../styles/layout.module.css'
 import '../styles/global.css';
 
-export default function Layout({
-  children,
-  title = false,
-  description = false,
-  image = false,
-  path = false,
-}) {
+export default function Layout({children}) {
   const data = useStaticQuery(graphql`
     query GetSiteTitle {
       site {
@@ -26,7 +20,7 @@ export default function Layout({
 
   return (
     <>
-      <Seo title={title} description={description} image={image} path={path} />
+      <Seo/>
       <header className={header}>
         <Link to="/">{meta.title}</Link>
         <nav>

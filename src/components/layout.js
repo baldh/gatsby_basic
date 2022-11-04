@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Seo } from './seo';
-import {header, content} from '../styles/layout.module.css'
+import { header, content } from '../styles/layout.module.css';
 import '../styles/global.css';
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   const data = useStaticQuery(graphql`
-    query GetSiteTitle {
+    query a {
       site {
         siteMetadata {
           title
@@ -20,7 +20,7 @@ export default function Layout({children}) {
 
   return (
     <>
-      <Seo/>
+      <Seo />
       <header className={header}>
         <Link to="/">{meta.title}</Link>
         <nav>

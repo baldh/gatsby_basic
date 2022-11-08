@@ -24,6 +24,7 @@ export default function Layout({ children }) {
       <header className={header}>
         <Link to="/">{meta.title}</Link>
         <nav>
+          <Link to="/blog">Blog</Link>
           <Link to="/about">About</Link>
         </nav>
       </header>

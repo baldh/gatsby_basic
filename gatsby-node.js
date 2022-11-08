@@ -52,9 +52,10 @@ exports.createPages = async ({graphql, actions, reporter}) => {
 
   //We are looping over every MDX posts to create individual "post" pages
   posts.forEach(post => {
-    let path = post.childMdx.frontmatter.slug ?
-      `/${createSlug(post.relativeDirectory) / post.childMdx.frontmatter.slug}` :
-      `/${createSlug(post.relativeDirectory)}/${createSlug(post.name)}`
+    const path = post.relativeDirectory ?
+      `/${createSlug(post.relativeDirectory)}/${createSlug(post.name)}` :
+      `/${createSlug(post.name)}`
+
     let tagList = createTagList(post.childMdx.frontmatter.tags)
     let id = post.id
 
@@ -65,7 +66,7 @@ exports.createPages = async ({graphql, actions, reporter}) => {
     createPage({
       path: path,
       component: `${require.resolve(
-        `./src/templates/blogpost`
+        `./src/templates/post`
       )}?__contentFilePath=${post.childMdx.internal.contentFilePath}`,
       context: {
         name: post.name,
@@ -96,6 +97,7 @@ exports.createPages = async ({graphql, actions, reporter}) => {
   //We are looping over every tag to create individual "tag" pages
   const tagList = createTagList(posts.map(node => node.childMdx.frontmatter.tags))
   tagList.forEach(tag => {
+    if(tag === "") return
     let path = `tag/${tag}`
 
     if(allPages.tags.includes(path)) return

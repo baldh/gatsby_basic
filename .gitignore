@@ -15,6 +15,7 @@ test/**/public
 .gatsby-context.js
 .DS_Store
 public/
+posts/
 e2e-tests/gatsby-pnp/
 __diff_output__/
 .netlify

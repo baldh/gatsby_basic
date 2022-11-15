@@ -1,3 +1,12 @@
+const wrapESMPlugin = name =>
+  function wrapESM(opts) {
+    return async (...args) => {
+      const mod = await import(name)
+      const plugin = mod.default(opts)
+      return plugin(...args)
+    }
+  }
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://yourdomain.tld",
@@ -20,8 +29,12 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [`.mdx`, `.md`],
+        mdxOptions: {
+          rehypePlugins: [wrapESMPlugin('rehype-slug')],
+        },
       }
-    }
+    },
+
     //end of MDX config
   ]
 }

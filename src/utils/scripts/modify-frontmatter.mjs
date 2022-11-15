@@ -38,7 +38,8 @@ async function modifyContent(content) {
 }
 
 try {
-  const files = glob.sync('src/posts/**/*.{md,mdx}');
+  const files = glob.sync('src/blog/**/*.{md,mdx}');
+  const outputFiles = glob.sync('posts/**/*.{md,mdx}')
   const response = await fs.readFile('src/utils/cache/file-cache.json', 'utf8');
   const cache = JSON.parse(response);
 
@@ -46,7 +47,7 @@ try {
     for (const [key, value] of Object.entries(cache)) {
       if (!files.includes(key)) {
         delete cache[key];
-        await fs.remove(key.replace('src/posts', 'posts'));
+        await fs.remove(key.replace('src/blog', 'posts'));
         await writeCache(cache);
       }
     }
@@ -54,12 +55,12 @@ try {
 
   files.forEach(async file => {
     const fileContent = await fs.readFile(file, 'utf8');
-    const outputFilePath = file.replace('src/posts', 'posts');
+    const outputFilePath = file.replace('src/blog', 'posts');
     let modifiedContent = readCache(cache, file);
 
     if (modifiedContent !== fileContent) {
       modifiedContent = await modifyContent(fileContent);
-      writeCache(cache, file, fileContent);
+      await writeCache(cache, file, fileContent);
 
       fs.outputFile(outputFilePath, modifiedContent);
     }

@@ -1,1 +1,1 @@
-{"src/posts/first-post.mdx":"# First Post\r\n\r\nThis is first post, yayyy\r\n"}
+{"src/blog/first-post.mdx":"### First Post\r\n\r\nApparently this is first post 🤩🤩\r\nHonestly I'm very excited","src/blog/second-post.mdx":"---\r\ntags: post\r\nauthor: Jason Doe\r\nDate: 22/05/2022\r\n---\r\n\r\nThis is second post. This is even better than the first one 😎😎"}

@@ -6,8 +6,8 @@
   "author": "baldh <baldhokri1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "chokidar": "chokidar \"src/posts/**/*.{md,mdx}\" -c \"node src/utils/scripts/modify-frontmatter.mjs\"",
-    "develop": "gatsby develop",
+    "chokidar": "chokidar \"src/blog/**/*.{md,mdx}\" -c \"node src/utils/scripts/modify-frontmatter.mjs\"",
+    "develop": "concurrently --kill-others \"npm run chokidar\" \"gatsby develop\"",
     "start": "gatsby start",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -16,7 +16,6 @@
   "dependencies": {
     "@mdx-js/mdx": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
-    "chokidar-cli": "^3.0.0",
     "fs-extra": "^10.1.0",
     "gatsby": "^4.24.4",
     "gatsby-plugin-mdx": "^4.3.0",
@@ -32,5 +31,9 @@
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.1",
     "unified": "^10.1.2"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^7.5.0"
   }
 }
